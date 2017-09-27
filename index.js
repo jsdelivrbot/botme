@@ -1,4 +1,4 @@
-const fs = require("fs");
+﻿const fs = require("fs");
 const login = require("facebook-chat-api");
 var answeredThreads = {};
 // login({email: "duongnv1996@gmail.com", password: "duong1221011999"}, (err, api) => {
@@ -24,7 +24,7 @@ login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, (err, ap
     api.listen(function callback(err, message) {
         var d = new Date();
         var h = d.getHours();
-        if(h >= 0 && h <= 6 && !answeredThreads.hasOwnProperty(message.threadID)){
+        if(h >= 0 && h <= 6 ){
             api.getUserInfo(message.senderID, function(err, ret) {
                 if(err) return console.error(err);
                 for(var prop in ret) {
